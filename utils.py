@@ -1,7 +1,7 @@
 import time
 import math
 import os
-from pyrogram.errors import FloodWait
+from pyrogram.errors import FloodWait, MessageNotModified
 
 class Timer:
     def __init__(self, time_between=5):
@@ -91,6 +91,7 @@ async def progress_bar(current, total, reply, start):
             progress_bar = "▬" * completed_length + "▭" * remaining_length
             
             try:
+                timestamp = time.strftime("%H:%M:%S")
                 progress_text = (
                     "`\n╭──⌯════ 𝐁𝐨𝐭 𝐒𝐭𝐚𝐭𝐢𝐜𝐬 ═════⌯──╮\n"
                     f"├⚡ {progress_bar}\n"
@@ -99,6 +100,7 @@ async def progress_bar(current, total, reply, start):
                     f"├📟 Processed: {cur}\n"
                     f"├🧲 Size: {tot}\n"
                     f"├🕑 ETA: {eta}\n"
+                    f"├⏰ Time: {timestamp}\n"
                     "╰─══✨ Crushe 𝘽𝙊𝙏𝙎 ✨══─╯\n\n"
                     "📋 Quick Commands:\n"
                     "/logs - View bot logs\n"
@@ -110,3 +112,5 @@ async def progress_bar(current, total, reply, start):
                 await reply.edit(progress_text)
             except FloodWait as e:
                 await asyncio.sleep(e.x)
+            except MessageNotModified:
+                pass
