@@ -28,21 +28,6 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 credit ="𝙲𝚁𝚄𝚂𝙷𝙴 𝘽𝙾𝚃𝚂"
 
 commands_text = """
-🤖 Available Commands
-
-/newbot - create a new bot
-/mybots - edit your bots
-/myapps - edit your web apps
-/mygames - edit your games
-/token - generate authorization token
-/revoke - revoke bot access token
-/setname - change a bot's name
-/setdescription - change bot description
-/setabouttext - change bot about info
-/setuserpic - change bot profile photo
-/setcommands - change the list of commands
-/deletebot - delete a bot
-/cancel - cancel the current operation
 
 📥 File Processing:
 /start - Start the bot
